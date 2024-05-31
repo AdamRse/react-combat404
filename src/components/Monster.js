@@ -1,8 +1,10 @@
 import React from 'react';
 import ProgressBar from './ProgressBar';
 import { useSelector } from 'react-redux';
+
+
 const Monster = () => {
-  const monster = useSelector(state => state.store.monster);
+  const monster = useSelector(state => state.fight.monster);
 
   return(
       <section>
