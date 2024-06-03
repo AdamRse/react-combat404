@@ -1,28 +1,20 @@
 import React from 'react';
 import PlayerCard from './PlayerCard';
+import { useSelector } from 'react-redux';
 
 
-class PlayerList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      players: {
+const PlayerList = () => {
+  const players = useSelector(state => state.fight.players);
+
+  return (
+    <div className='row'>
+      {
+        players.map((player, id) => {
+          return <PlayerCard key={id} player={player} />
+        })
       }
-    }
-  }
-  displayPlayers = () => {
-    return Object.keys(this.state.players).map(key => (
-      <PlayerCard key={this.state.players[key].id} player={this.state.players[key]} />
-    ));
-  }
-  render() {
-    return (
-      <div className='row'>
-        {this.displayPlayers()}
-      </div>
-    );
-  }
-
+    </div>
+  );
 }
 
 export default PlayerList;

@@ -4,7 +4,7 @@ import Monster from './Monster';
 import PlayerList from './PlayerList';
 
 class App extends React.Component {
-  render() {
+  render(){
     return (
       <div className="App">
         <Monster />

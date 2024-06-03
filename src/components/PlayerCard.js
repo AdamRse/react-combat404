@@ -4,7 +4,7 @@ import ProgressBar from './ProgressBar';
 
 const PlayerCard = (props) => {
     return (
-        <div key={props.player.id} className="col-sm-3 card center" id={`joueur${props.player.id}`}>
+        <div key={props.key} className="col-sm-3 card center" id={`joueur${props.key}`}>
 
             <div className="card-body text-center">
                 <h5 className="card-title">{props.player.name}</h5>

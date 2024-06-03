@@ -24,7 +24,7 @@ const Monster = () => {
                     </div>
                   </div>
                 </div>
-                <ProgressBar pv='800' pvMax='800' bgType='bg-danger' faType='fa-heart' barName=' : pv' />
+                <ProgressBar pv={monster.pv} pvMax={monster.pvMax}  bgType='bg-danger' faType='fa-heart' barName=' : pv' />
               </div>
             </div>
           </div>
