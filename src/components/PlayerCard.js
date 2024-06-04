@@ -15,9 +15,6 @@ const PlayerCard = (props) => {
                 <div className="row ">
                     <div >
                         <ButtonCapacity player={props.player} />
-                        <ButtonCapacity player={props.player} />
-                        <ButtonCapacity player={props.player} />
-                        <ButtonCapacity player={props.player} />
 
                     </div>
                 </div >
