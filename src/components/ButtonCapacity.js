@@ -9,7 +9,6 @@ const ButtonCapacity = (props) => {
         dispatch(//dispatch (useDispatch()) va chercher la fonction du reducer dans le slice, c'est pour ça qu'on l'exporte
             hitMonster(props.player)
         );
-        console.log('aie !');
     }
     return (
         <button type="button" onClick={() => combat()} className="btn btn-success material-tooltip-main ">

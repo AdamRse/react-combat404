@@ -10,12 +10,15 @@ const initialState = {
   monster: { name: "Monstre", pv: 400, pvMax: 400, mana: 120, manaMax: 120 }
 };
 
-export const fightSlice = createSlice({//createSlice génère un objet fightReducer
+export const fightSlice = createSlice({//createSlice génère un objet fightReducer, c'est un objet de la library immer qui gère l'immutabilité du state, et donc qui return le nouveau state après modification dans le reducer
   name: "fight",
   initialState,
   reducers: {
-    hitMonster: (state, action) => {
+    hitMonster: (state, action) => {//
       state.monster.pv -= action.payload.atk
+    },
+    hitPlayer: (state, action) => {
+
     }
   },
 });
