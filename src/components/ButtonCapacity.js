@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { hitMonster } from '../features/fight/fightSlice';
+import { hitMonster, hitPlayer } from '../features/fight/fightSlice';
 
 const ButtonCapacity = (props) => { 
     const dispatch = useDispatch();//Dispatch permet de changer une variable du state
@@ -8,6 +8,9 @@ const ButtonCapacity = (props) => {
     function combat(){
         dispatch(//dispatch (useDispatch()) va chercher la fonction du reducer dans le slice, c'est pour ça qu'on l'exporte
             hitMonster(props.player)
+        );
+        dispatch(
+            hitPlayer(props.player)
         );
     }
     return (

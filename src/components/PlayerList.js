@@ -9,8 +9,8 @@ const PlayerList = () => {
   return (
     <div className='row'>
       {
-        players.map((player, id) => {
-          return <PlayerCard key={id} player={player} />
+        players.map((player, k) => {
+          return <PlayerCard player={{...player, id:k}} />
         })
       }
     </div>
