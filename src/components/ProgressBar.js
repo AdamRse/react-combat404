@@ -57,7 +57,7 @@ const ProgressBar = (props) => {
 
     return (
         <div className="health-bar">
-            <svg width="200" height="200" viewBox="0 0 200 200">
+            <svg viewBox="0 0 200 200">
                 <g id="healthBarInner" transform="translate(100,100)" ref={healthBarInnerRef}>
                     {/* generated health bar sections will go here */}
                 </g>

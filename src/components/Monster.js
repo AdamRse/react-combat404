@@ -8,11 +8,15 @@ const Monster = () => {
 
   return (
     <>
-      <div id='monsterContainer'>
-        <img className="img-fluid" src="img/sephiroth.gif" alt='monster' />
-        <span className='nameMonster'>{monster.name}</span>
-
-        <ProgressBar pv={monster.pv} pvMax={monster.pvMax} type={1} bgType='bg-danger' faType='fa-heart' barName=' : pv' />
+      <div className='monster-row'>
+        <img src="img/characters/sephiroth-static.gif" alt='monster' />
+        <div className='stats-monster'>
+          <div className='monster-name'>{monster.name}</div>
+          <div className='bars'>
+            <ProgressBar pv={monster.pv} pvMax={monster.pvMax} type={1} />
+            <ProgressBar pv={monster.mana} pvMax={monster.manaMax} type={0} />
+          </div>
+        </div>
       </div>
     </>
   )

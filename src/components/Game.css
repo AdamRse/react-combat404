@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
 body{
   width: 100%;
   min-height: 100vh;
@@ -10,6 +11,8 @@ body{
 }
 .App {
   text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .App-logo {
@@ -52,12 +55,70 @@ body{
 /*      MONSTER      */
 
 #monsterContainer{
+  display: flex;
+  justify-content: end;
+  position: relative;
+  height: 100vh;
+  width: 50%;
+  overflow: hidden;
+}
+#monsterContainer .monster-row{
+  text-align: right;
+  height: 100%;
   display: inline-block;
+  max-width: 100%;
+}
+#monsterContainer .monster-name{
+  font-size: 4rem;
+  display: inline-block;
+  mix-blend-mode: exclusion;
+  max-width: 50%;
+  color: #fff;
+  overflow: hidden;
+  font-family: "Tiny5", sans-serif;
+  font-weight: bold;
+}
+#monsterContainer img{
+  height: 70%;
+  transform: scaleX(-1);
+  padding: 2rem 1rem;
+  margin-right: 15%;
+  float: right;
+}
+#monsterContainer .stats-monster{
+  padding: 1rem;
+  background: url("/public/img/characters/sephiroth-static2.gif") no-repeat, rgba(0, 0, 0, 0.7);
+  background-position: 105% 15%;
+  background-size: 300%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#playerContainer{
+  display: flex;
+  justify-content: center;
   position: relative;
   height: 100vh;
   width: 50%;
 }
-#monsterContainer img{
-  height: 30%;
-  transform: scaleX(-1);
+
+.statusGame{
+  font-size: 3rem;
+}
+
+#monsterContainer .health-bar{
+  width: 15%;
+  min-width: 120px;
+}
+#monsterContainer .bars{
+  text-align: right;
+  display: inline-block;
+  width: 50%;
+}
+.health-bar{
+  width: 10%;
+  min-width: 120px;
+  display: inline-block;
+  margin: 0 3%;
 }

@@ -19,12 +19,13 @@ const Game = () => {
   }
     return (
       <div className="App">
-        <Monster />
-        <div className='statusGame'>{messageGameStatut()}</div>
-        {/* <br/>
-        <section className="container-fluid">
+        <div id='monsterContainer'>
+          <Monster />
+        </div>
+        <div>
           <PlayerList />
-        </section > */}
+        </div>
+        <div className='statusGame'>{messageGameStatut()}</div>
       </div>
     )
 }
