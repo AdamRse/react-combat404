@@ -13,12 +13,12 @@ const ButtonCapacity = (props) => {
             hitPlayer(props.player)
         );
     }
-    return (
+    return props.player.pv > 0 ? (
         <button type="button" onClick={() => combat()} className="btn btn-success material-tooltip-main ">
             Attaque
             <i className="fas fa-bomb"></i> ({props.player.atk} damages)
         </button>
-    )
+    ) : null
 }
 
 export default ButtonCapacity;
