@@ -2,20 +2,25 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   players: [
-    { name: "cloud", pv: 100, pvMax: 100, mana: 30, manaMax: 30, atk: 5 }
-    ,{ name: "tifa", pv: 50, pvMax: 50, mana: 30, manaMax: 30, atk: 10 }
-    ,{ name: "link", pv: 75, pvMax: 75, mana: 30, manaMax: 30, atk: 8 }
-    ,{ name: "ryu", pv: 175, pvMax: 175, mana: 30, manaMax: 30, atk: 1 }
+    { name: "cloud", pv: 30, pvMax: 30, mana: 5, manaMax: 5, atk: 6 }
+    ,{ name: "tifa", pv: 27, pvMax: 27, mana: 8, manaMax: 8, atk: 5 }
+    ,{ name: "link", pv: 22, pvMax: 22, mana: 6, manaMax: 6, atk: 8 }
+    ,{ name: "ryu", pv: 17, pvMax: 17, mana: 3, manaMax: 3, atk: 9 }
   ]
-  ,monster: { name: "Sephiroth", pv: 200, pvMax: 200, mana: 120, manaMax: 120, atk: 10 }
+  ,monster: { name: "Sephiroth", pv: 55, pvMax: 55, mana: 32, manaMax: 32, atk: 15 }
   , gameStatus: 1 //0 défaite ; 1 en cours ; 2 victoire
+  , actionFree: true
 };
 
 export const fightSlice = createSlice({
   name: "fight",
   initialState,
   reducers: {
-    hitMonster: (state, action) => {
+    manageActionFree(state, action){
+      state.actionFree = action.payload;
+    }
+    ,resetState: () => initialState
+    ,hitMonster: (state, action) => {
       const player = action.payload;
       if (player.pv > 0) {
         state.monster.pv -= player.atk;
@@ -25,7 +30,7 @@ export const fightSlice = createSlice({
     },
     hitPlayer: (state, action) => {
       const player = action.payload;
-      if (state.players[player.id].pv > 0) {
+      if (state.monster.pv>0 && state.players[player.id].pv > 0) {
         state.players[player.id].pv -= state.monster.atk;
         if (state.players[player.id].pv <= 0)
           state.players[player.id].pv = 0;
@@ -37,5 +42,5 @@ export const fightSlice = createSlice({
   },
 });
 
-export const { hitMonster, hitPlayer, setGameStatus } = fightSlice.actions;
+export const { hitMonster, hitPlayer, setGameStatus, manageActionFree, resetState } = fightSlice.actions;
 export default fightSlice.reducer;
