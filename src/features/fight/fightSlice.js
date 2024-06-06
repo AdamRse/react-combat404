@@ -11,28 +11,31 @@ const initialState = {
   , gameStatus: 1 //0 défaite ; 1 en cours ; 2 victoire
 };
 
-export const fightSlice = createSlice({//createSlice génère un objet fightReducer, c'est un objet de la library immer qui gère l'immutabilité du state, et donc qui return le nouveau state après modification dans le reducer
+export const fightSlice = createSlice({
   name: "fight",
   initialState,
   reducers: {
     hitMonster: (state, action) => {
       const player = action.payload;
-      if(player.pv>0){
-        state.monster.pv -= player.atk
-        if(state.monster.pv <= 0)
+      if (player.pv > 0) {
+        state.monster.pv -= player.atk;
+        if (state.monster.pv <= 0)
           state.monster.pv = 0;
       }
     },
     hitPlayer: (state, action) => {
       const player = action.payload;
-      if(state.players[player.id].pv>0){
+      if (state.players[player.id].pv > 0) {
         state.players[player.id].pv -= state.monster.atk;
-        if(state.players[player.id].pv<=0)
-          state.players[player.id].pv=0
+        if (state.players[player.id].pv <= 0)
+          state.players[player.id].pv = 0;
       }
+    },
+    setGameStatus: (state, action) => {
+      state.gameStatus = action.payload;
     }
   },
 });
 
-export const { hitMonster, hitPlayer } = fightSlice.actions;
+export const { hitMonster, hitPlayer, setGameStatus } = fightSlice.actions;
 export default fightSlice.reducer;
