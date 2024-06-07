@@ -9,13 +9,12 @@ const Monster = () => {
 
   useEffect(() => {
     if (isHit) {
-      const timer = setTimeout(() => setIsHit(false), 500); // Durée de l'animation
+      const timer = setTimeout(() => setIsHit(false), 500); // Durée de l'anim css
       return () => clearTimeout(timer);
     }
   }, [isHit]);
 
-  useEffect(() => {
-    // Ne déclencher l'animation que si le monstre a déjà été frappé au moins une fois
+  useEffect(() => {//Vérification
     if (hasBeenHit) {
       setIsHit(true);
     } else if (monster.pv < monster.pvMax) {

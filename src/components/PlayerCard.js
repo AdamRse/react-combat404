@@ -8,13 +8,12 @@ const PlayerCard = (props) => {
 
     useEffect(() => {
         if (isHit) {
-            const timer = setTimeout(() => setIsHit(false), 500);
+            const timer = setTimeout(() => setIsHit(false), 500);//Temps de l'anim css
             return () => clearTimeout(timer);
         }
     }, [isHit]);
 
-    useEffect(() => {
-        // Ne déclencher l'animation que si le joueur a déjà été frappé au moins une fois
+    useEffect(() => {//Vérification pour que l'anim ne se déclenche pas au début
         if (hasBeenHit) {
             setIsHit(true);
         } else if (props.player.pv < props.player.pvMax) {

@@ -3,7 +3,6 @@ import './Game.css';
 import Monster from './Monster';
 import PlayerList from './PlayerList';
 import EndGame from "./EndGame";
-import { useSelector } from 'react-redux';
 
 const Game = () => {
     return (
